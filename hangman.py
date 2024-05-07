@@ -27,40 +27,43 @@ class PlayHangman:
                     self.game_over = True
                     print("Game over! The word was:", self.word)
             self.draw_man.draw_hangman(self.remaining_attempts)
+            if self.is_letter_in.get_masked_word() == self.word:
+                self.game_over = True
+                print("Congratulations! You've guessed the word:", self.word)
 
 
 class DrawMan:
     @staticmethod
     def draw_hangman(remaining_attempts):
         stages = [ 
-            """
+            r"""
                 --------
                 |      |
                 |      O
-                |     \|/
+                |     \\|
                 |      |
                 |     / \\
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      O
-                |     \|/
+                |     \\|
                 |      |
                 |     / 
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      O
-                |     \|/
+                |     \\|
                 |      |
                 |      
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      O
@@ -69,7 +72,7 @@ class DrawMan:
                 |     
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      O
@@ -78,7 +81,7 @@ class DrawMan:
                 |     
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      O
@@ -87,7 +90,7 @@ class DrawMan:
                 |     
                 -
             """,
-            """
+            r"""
                 --------
                 |      |
                 |      
@@ -98,6 +101,7 @@ class DrawMan:
             """
         ]
         print(stages[remaining_attempts])
+
 
 
 class IsLetterIn:
