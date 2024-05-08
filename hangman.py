@@ -129,7 +129,7 @@ class IsInputValid:
 class ChooseWord:
     @staticmethod
     def choose():
-        word_pool = ['hangman', 'python', 'programming', 'computer', 'keyboard', 'internet', 'game', 'hang', 'man', 'play', 'guess', 'word', 'letter', 'code', 'fun']
+        word_pool = ['hangman', 'python', 'defense', 'computer', 'keyboard', 'internet', 'university', 'professor', 'witch', 'creeper', 'disco', 'lake', 'letter', 'rifle', 'sniper']
         return random.choice(word_pool)
 
 

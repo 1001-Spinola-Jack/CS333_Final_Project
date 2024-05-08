@@ -54,40 +54,40 @@ class TestPlayHangman(unittest.TestCase):
 
 
     def test_play_integration_out_of_attempts(self):
-        with StringIO() as fake_out, patch('builtins.input', side_effect=['z'] * 7):  # Incorrect guesses to exhaust attempts
+        with StringIO() as fake_out, patch('builtins.input', side_effect=['z'] * 7):  
             self.game.play()
             self.assertIn("Game over! The word was: hangman", fake_out.getvalue().strip())
 
     def test_play_integration_draw_progress(self):
-        with StringIO() as fake_out, patch('builtins.input', side_effect=['z', 'z', 'z', 'z', 'z', 'z']):  # Incorrect guesses to progress drawing
+        with StringIO() as fake_out, patch('builtins.input', side_effect=['z', 'z', 'z', 'z', 'z', 'z']): 
             self.game.play()
             self.assertIn("Game over! The word was: hangman", fake_out.getvalue().strip())
 
     def test_play_integration_correct_letters_revealed(self):
-    # Define side effect for input function to return valid input repeatedly
-        side_effect = ['h', 'a', 'n', 'g', 'm']  # Adjust the values as needed
+   
+        side_effect = ['h', 'a', 'n', 'g', 'm'] 
 
         with StringIO() as fake_out, patch('builtins.input', side_effect=side_effect):
             self.game.play()
-            # Check if the expected output is present in fake_out
+           
             self.assertIn("Congratulations! You've guessed the word:", fake_out.getvalue())
 
     def test_play_integration_invalid_input_handling(self):
-    # Define side effect for input function to return invalid input repeatedly
-        side_effect = ['1', '2', '3', '4', '5', '6']  # Adjust the values as needed
+    
+        side_effect = ['1', '2', '3', '4', '5', '6'] 
 
         with StringIO() as fake_out, patch('builtins.input', side_effect=side_effect):
             self.game.play()
-        # Add assertions to check the behavior of the game after invalid input
+        
 
 
 def test_play_integration_word_guessed(self):
-    # Define side effect for input function to return valid input repeatedly
-        side_effect = ['h', 'a', 'n', 'g', 'm']  # Add more values if needed
+   
+        side_effect = ['h', 'a', 'n', 'g', 'm']  
 
         with StringIO() as fake_out, patch('builtins.input', side_effect=side_effect):
             self.game.play()
-            # Check if the expected output is present in fake_out
+           
             self.assertIn("Congratulations! You've guessed the word:", fake_out.getvalue())
 
 

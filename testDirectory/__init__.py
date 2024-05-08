@@ -1,0 +1,1 @@
+from .hangmanTest import hangmanTest
