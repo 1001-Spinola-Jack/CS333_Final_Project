@@ -3,7 +3,7 @@ name: Python CI
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - main  
 
 jobs:
   test:
@@ -17,12 +17,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Specify your Python version
+        python-version: '3.12'  
 
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install pytest  # or any other testing framework you use
+        pip install pytest 
 
     - name: Run tests
-      run: pytest  # Replace with your test command
+      run: pytest  
