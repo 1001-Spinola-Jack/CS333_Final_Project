@@ -1,16 +1,28 @@
-name: Run Tests
+name: Python CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
 
 jobs:
-  tests:
-    runs-on: windows-latest
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: '3.x'  # Specify your Python version
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest  # or any other testing framework you use
 
     - name: Run tests
-      run: pytest
+      run: pytest  # Replace with your test command
